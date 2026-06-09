@@ -19,6 +19,12 @@ Date: 2026-06-09
   - Editorial story/newsletter section with WhatsApp CTA.
   - Portfolio project links for design systems, funnels, and apps.
 - Added a final build inventory for components, assets, and validations.
+- Updated the first fold after review:
+  - Removed the right-side proof card from the hero.
+  - Centered the hero headline and copy.
+  - Added the helper text "Sem forms, direto no whatsapp" below the CTA buttons.
+  - Standardized section backgrounds to white with headline + card structure inspired by epic.new/en.
+  - Removed the "Impacto em vendas" proof card.
 
 ## Technologies Identified
 
