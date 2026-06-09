@@ -25,6 +25,10 @@ Date: 2026-06-09
   - Added the helper text "Sem forms, direto no whatsapp" below the CTA buttons.
   - Standardized section backgrounds to white with headline + card structure inspired by epic.new/en.
   - Removed the "Impacto em vendas" proof card.
+- Refactored Section 03 into a mini-newsletter structure:
+  - Preserved the full original profile copy inside the section.
+  - Added a newsletter masthead, issue card, opening letter, index, chapter cards, pull-quote/highlight card, image placeholders, and closing CTA.
+  - Kept the section as a wireframe while giving it a more dynamic editorial rhythm.
 
 ## Technologies Identified
 
