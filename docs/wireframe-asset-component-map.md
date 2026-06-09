@@ -6,7 +6,7 @@ Date: 2026-06-09
 
 This document only tracks:
 
-- shadcn components imported or selected for the later LP/presentation page.
+- shadcn components imported or selected that are represented in the planned wireframe.
 - image/visual assets needed for the later LP/presentation page.
 
 It does not map page sections, custom components, content files, routes, or catalog-page work.
@@ -22,19 +22,13 @@ It does not map page sections, custom components, content files, routes, or cata
 
 | Component | File Location | Status | Later usage |
 | --- | --- | --- | --- |
-| Accordion | `components/ui/accordion.tsx` | Imported | FAQ/disclosure blocks, mobile issue index if needed |
+| Accordion | `components/ui/accordion.tsx` | Imported | Mobile issue index/disclosure pattern if the wireframe note is implemented |
 | Aspect Ratio | `components/ui/aspect-ratio.tsx` | Imported | Image frames, portrait/collage slots, project previews |
-| Avatar | `components/ui/avatar.tsx` | Imported | Social proof avatars, testimonial/profile identity |
 | Badge | `components/ui/badge.tsx` | Imported | Technology pills, strategy tags, metadata labels |
-| Button | `components/ui/button.tsx` | Imported | Header actions, hero CTA, portfolio links, closing CTA |
-| Button Group | `components/ui/button-group.tsx` | Imported | Grouped CTA/actions when needed |
-| Card | `components/ui/card.tsx` | Imported | Authority, proof, newsletter, portfolio, testimonial cards |
-| Carousel | `components/ui/carousel.tsx` | Imported | Logo rail or media carousel if final behavior needs controls |
-| Collapsible | `components/ui/collapsible.tsx` | Imported | Lightweight expandable content |
-| Navigation Menu | `components/ui/navigation-menu.tsx` | Imported | Header navigation if richer menu semantics are needed |
-| Scroll Area | `components/ui/scroll-area.tsx` | Imported | Long mobile drawer/index content |
+| Button | `components/ui/button.tsx` | Imported | Hero CTA, portfolio links, closing CTA |
+| Card | `components/ui/card.tsx` | Imported | Authority, proof, newsletter, portfolio cards |
+| Carousel | `components/ui/carousel.tsx` | Imported | Technology/logo rail |
 | Separator | `components/ui/separator.tsx` | Imported | Section rules, masthead dividers, card separators |
-| Sheet | `components/ui/sheet.tsx` | Imported | Mobile navigation drawer if needed |
 
 ## Existing Image Assets
 
