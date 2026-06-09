@@ -17,6 +17,7 @@ It does not map page sections, custom components, content files, routes, or cata
 - Artboard: `personal-sales-page - Portfolio Sales Wireframe`
 - Project path: `/Users/brunogovas/Projects/Projetos Solo/personal-sales-page`
 - Theme source: `styles/global.css`
+- Tech icon source: `docs/docs.md`
 
 ## shadcn Components
 
@@ -34,9 +35,15 @@ It does not map page sections, custom components, content files, routes, or cata
 
 | Asset | File Location | Status | Possible usage |
 | --- | --- | --- | --- |
-| Initial frame image | `src/assets/Frame Inicial.png` | Existing candidate, untracked | Hero or portfolio preview |
-| Final background frame | `src/assets/Frame Final BG.png` | Existing candidate, untracked | Hero background/texture |
-| WhatsApp image | `src/assets/WhatsApp Image 2026-01-05 at 10.01.22.jpeg` | Existing candidate, untracked | Bruno portrait/editorial image |
+| Header logo | `src/assets/logo.webp` | Ready, converted from `src/assets/Component 1.png` | Website logo in the top-left of the future header |
+| Hero background | `src/assets/hero-background.webp` | Ready, converted from `src/assets/Frame Inicial.png` | Hero section background |
+| Footer background | `src/assets/footer-background.webp` | Ready, converted from `src/assets/Frame Final BG.png` | Footer background |
+| Bruno portrait | `src/assets/bruno-portrait.webp` | Ready, converted from `src/assets/WhatsApp Image 2026-01-05 at 10.01.22.jpeg` | Bruno portrait/editorial image |
+| Education collage | `src/assets/super-geeks-unifesp-univap.webp` | Ready, converted from `src/assets/super-geeks-unifesp-univap.png` | Super-Geeks, Unifesp, Univap visual |
+| Proof diagram | `src/assets/proof-diagram.webp` | Ready, converted from `src/assets/proff-diagram.png` | Promise/proof/retention visual |
+| App preview | `src/assets/app-preview.webp` | Ready, converted from `src/assets/App-preview.png` | Portfolio project preview |
+| Funnels preview | `src/assets/funnels-preview.webp` | Ready, converted from `src/assets/Funnel-preview.png` | Portfolio project preview |
+| Design systems preview | `src/assets/design-systems-preview.webp` | Ready, converted from `src/assets/design-systems-preview.png` | Portfolio project preview |
 | Hero image | `src/assets/hero.png` | Existing | Current starter asset; replace or reuse only if approved |
 | React logo | `src/assets/react.svg` | Existing | Technology/logo rail |
 | Vite logo | `src/assets/vite.svg` | Existing | Technology/logo rail |
@@ -47,15 +54,16 @@ It does not map page sections, custom components, content files, routes, or cata
 
 | Asset group | Target location | Status / notes |
 | --- | --- | --- |
-| Wordmark/name treatment | `src/assets/brand/wordmark.svg` | Needed; text fallback is acceptable first |
-| Hero background texture | `src/assets/hero/lunar-texture.webp` | Needed; `src/assets/Frame Final BG.png` may be a candidate |
-| Hero mobile background crop | `src/assets/hero/lunar-texture-mobile.webp` | Needed only if desktop crop fails on mobile |
-| Tech logos | `src/assets/logos/tech/` | Needed/confirm: React, React DOM, TypeScript, Vite, ESLint, npm, JavaScript, HTML, n8n, Supabase, Cloudflare, Framer Motion, shadcn/ui, Radix UI, VTurb, Stripe, Hotmart, Meta API, Next.js, Vercel |
-| Education logos | `src/assets/logos/education/` | Needed/confirm permission: Super-Geeks, Univap, Unifesp |
+| Tech logos | Iconify icons documented in `docs/docs.md` | Ready via installed `@iconify-icon/react`; use the documented `logos:*` IDs when implementing the logo rail |
 | Company logos | `src/assets/logos/companies/` | Needed/confirm spelling and permission: Grupo Experiencie, Inove Corp., Grupo Mega |
-| Bruno portrait | `src/assets/profile/bruno-castelani-portrait.webp` | Needed; `src/assets/WhatsApp Image 2026-01-05 at 10.01.22.jpeg` may be a candidate |
 | Bruno portrait mobile crop | `src/assets/profile/bruno-castelani-portrait-mobile.webp` | Needed only if desktop crop fails on mobile |
-| Education collage | `src/assets/profile/education-collage.webp` | Needed only if the final design uses a collage |
 | Partner collage | `src/assets/profile/partner-collage.webp` | Needed only if the final design uses a collage |
-| Promise/proof diagram | `src/assets/profile/promise-proof-retention-diagram.svg` | Needed only if the final design keeps this visual |
-| Project previews | `src/assets/projects/` | Needed/confirm: `design-systems-preview.webp`, `funnels-preview.webp`, `apps-preview.webp` |
+
+## Readiness Check
+
+| Area | Status | Notes |
+| --- | --- | --- |
+| shadcn components | Ready | Planned wireframe components are listed above. |
+| Image assets | Mostly ready | Hero, footer, logo, portrait, education collage, proof diagram, and project previews are available as `.webp`. |
+| Tech logos | Ready by documented approach | `@iconify-icon/react` is installed; use Iconify as described in `docs/docs.md`. |
+| Header | Not built yet | The header is not a shadcn component and no `Header`/`SiteHeader` file exists yet. The logo asset for it is ready at `src/assets/logo.webp`. |
