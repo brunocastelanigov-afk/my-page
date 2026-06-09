@@ -29,6 +29,10 @@ Date: 2026-06-09
   - Preserved the full original profile copy inside the section.
   - Added a newsletter masthead, issue card, opening letter, index, chapter cards, pull-quote/highlight card, image placeholders, and closing CTA.
   - Kept the section as a wireframe while giving it a more dynamic editorial rhythm.
+- Created `docs/wireframe-asset-component-map.md` using the Paper wireframe as source of truth:
+  - Mapped components by section and suggested implementation file location.
+  - Mapped visual assets and content/data files with suggested file locations.
+  - Listed existing untracked asset candidates without moving or committing them.
 
 ## Technologies Identified
 
@@ -60,3 +64,4 @@ Date: 2026-06-09
 
 - Reviewed each major Paper section with screenshots.
 - No application code was changed.
+- Reviewed the asset/component map after creation.
