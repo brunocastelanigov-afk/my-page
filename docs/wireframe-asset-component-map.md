@@ -8,7 +8,36 @@ Date: 2026-06-09
 - Artboard: `personal-sales-page - Portfolio Sales Wireframe`
 - Project path: `/Users/brunogovas/Projects/Projetos Solo/personal-sales-page`
 
-This document maps every component and asset currently required by the Paper wireframe. File locations are implementation targets, not confirmation that the file already exists unless marked as `Existing candidate`.
+This document maps every component and asset currently required by the Paper wireframe. File locations are implementation targets, not confirmation that the file already exists unless marked as `Existing candidate` or `Imported from shadcn MCP`.
+
+## Imported shadcn MCP Primitives
+
+These are the only UI primitives imported during this phase. They are reusable building blocks for the later LP/presentation implementation; no LP sections or catalog page have been built.
+
+| shadcn Component | File Location | Later LP usage | Status |
+| --- | --- | --- | --- |
+| Button | `components/ui/button.tsx` | Header actions, hero CTA, portfolio links, newsletter CTA | Imported from shadcn MCP |
+| Button Group | `components/ui/button-group.tsx` | Grouped hero CTA actions and compact action clusters | Imported from shadcn MCP |
+| Card | `components/ui/card.tsx` | Authority cards, proof cards, issue cards, project cards, testimonial cards | Imported from shadcn MCP |
+| Badge | `components/ui/badge.tsx` | Pills/tags for technologies, strategy tags, metadata labels | Imported from shadcn MCP |
+| Avatar | `components/ui/avatar.tsx` | Social-proof avatar badge and testimonial/person identity chips from planning doc | Imported from shadcn MCP |
+| Accordion | `components/ui/accordion.tsx` | FAQ boxes from planning doc and mobile issue index if needed | Imported from shadcn MCP |
+| Collapsible | `components/ui/collapsible.tsx` | Lightweight expandable content where full accordion semantics are not needed | Imported from shadcn MCP |
+| Separator | `components/ui/separator.tsx` | Section dividers, masthead rules, card dividers | Imported from shadcn MCP |
+| Aspect Ratio | `components/ui/aspect-ratio.tsx` | Image template frames, project previews, portrait/collage media slots | Imported from shadcn MCP |
+| Carousel | `components/ui/carousel.tsx` | Technology/logo rail and reusable carousel behavior if final design needs controls | Imported from shadcn MCP |
+| Sheet | `components/ui/sheet.tsx` | Mobile navigation drawer if anchor nav needs a compact responsive menu | Imported from shadcn MCP |
+| Navigation Menu | `components/ui/navigation-menu.tsx` | Header navigation if final nav needs richer accessible menu behavior | Imported from shadcn MCP |
+| Scroll Area | `components/ui/scroll-area.tsx` | Mobile sheet content, long index/list containers | Imported from shadcn MCP |
+
+## shadcn Support Files
+
+| File Location | Purpose | Status |
+| --- | --- | --- |
+| `components.json` | shadcn configuration for Vite, neutral base, CSS variables, lucide icons, and project aliases | Created for shadcn imports |
+| `lib/utils.ts` | Standard `cn()` class merge helper used by shadcn components | Created for shadcn imports |
+| `vite.config.ts` | Adds `@/*` alias resolution for Vite | Updated for shadcn imports |
+| `tsconfig.json`, `tsconfig.app.json` | Adds `@/*` alias resolution for TypeScript | Updated for shadcn imports |
 
 ## Existing Asset Candidates
 
@@ -32,13 +61,23 @@ This document maps every component and asset currently required by the Paper wir
 | Site header | `Global Header / Nav` | `src/components/layout/SiteHeader.tsx` | Contains wordmark and anchor nav. |
 | Wordmark block | `Wordmark Placeholder` | `src/components/brand/Wordmark.tsx` | Text now, can later consume logo asset. |
 | Anchor navigation | `Navigation Links` | `src/components/layout/AnchorNav.tsx` | Links: Inicio, Resultados, Perfil, Projetos, Contato. |
-| Primary button | Hero CTA, newsletter CTA | `src/components/ui/Button.tsx` | Reusable CTA style. Use existing design-system component if added. |
-| Secondary button | Hero CTA | `src/components/ui/Button.tsx` | Variant of the same button component. |
+| Primary button | Hero CTA, newsletter CTA | `components/ui/button.tsx` | Imported shadcn `Button`; style later with design-system tokens. |
+| Secondary button | Hero CTA | `components/ui/button.tsx` | Variant of the same imported shadcn `Button`. |
+| Button group | Hero CTA cluster | `components/ui/button-group.tsx` | Imported shadcn primitive for grouped CTA actions if needed. |
 | Section shell | Every page section | `src/components/layout/SectionShell.tsx` | Shared padding, white background, separators. |
 | Section eyebrow | All section labels | `src/components/ui/SectionEyebrow.tsx` | Small uppercase label. |
 | Section heading group | All section headers | `src/components/ui/SectionHeader.tsx` | Headline plus optional side description. |
-| Card shell | Most wireframe cards | `src/components/ui/Card.tsx` | Reusable bordered/dashed card surface. |
-| Pill / tag | Tech and strategy chips | `src/components/ui/Pill.tsx` | Used by technology lists and strategy tags. |
+| Card shell | Most wireframe cards | `components/ui/card.tsx` | Imported shadcn `Card` family. |
+| Pill / tag | Tech and strategy chips | `components/ui/badge.tsx` | Imported shadcn `Badge`; use for pill/tag variants later. |
+| Separator / rule | Section and editorial dividers | `components/ui/separator.tsx` | Imported shadcn `Separator`. |
+| Avatar | Social proof, testimonial identity, profile chips | `components/ui/avatar.tsx` | Imported shadcn `Avatar`; added from planning doc. |
+| Accordion / FAQ disclosure | FAQ boxes, mobile issue index | `components/ui/accordion.tsx` | Imported shadcn `Accordion`; added from planning doc. |
+| Collapsible disclosure | Lightweight open/close content | `components/ui/collapsible.tsx` | Imported shadcn `Collapsible`; use only when accordion structure is too heavy. |
+| Aspect ratio media frame | Image templates, project previews, portrait/collage slots | `components/ui/aspect-ratio.tsx` | Imported shadcn `AspectRatio`. |
+| Carousel primitive | Logo rail or optional media carousel | `components/ui/carousel.tsx` | Imported shadcn `Carousel`; final infinite behavior can wrap this or use CSS if no controls are needed. |
+| Sheet primitive | Mobile header menu | `components/ui/sheet.tsx` | Imported shadcn `Sheet`; use only if responsive nav needs drawer behavior. |
+| Navigation menu primitive | Header nav | `components/ui/navigation-menu.tsx` | Imported shadcn `NavigationMenu`; use only if final nav needs menu semantics. |
+| Scroll area primitive | Long mobile drawer/index content | `components/ui/scroll-area.tsx` | Imported shadcn `ScrollArea`. |
 
 ### Section 01 - Centered Hero
 
@@ -47,7 +86,7 @@ This document maps every component and asset currently required by the Paper wir
 | Centered hero section | `Section 01 / Centered Hero` | `src/components/sections/HeroSection.tsx` | Main first-fold layout. |
 | Hero centered copy | `Hero Centered Copy` | `src/components/sections/hero/HeroCopy.tsx` | Eyebrow, headline, support copy. |
 | Hero CTA stack | `Hero CTA Stack` | `src/components/sections/hero/HeroCtaStack.tsx` | Buttons plus helper text. |
-| Hero CTA buttons | `Hero CTA Buttons` | `src/components/sections/hero/HeroCtaButtons.tsx` | `Iniciar conversa` and `Ver projetos`. |
+| Hero CTA buttons | `Hero CTA Buttons` | `src/components/sections/hero/HeroCtaButtons.tsx` | `Iniciar conversa` and `Ver projetos`; compose from `components/ui/button.tsx` and optionally `components/ui/button-group.tsx`. |
 | WhatsApp helper text | `Sem forms, direto no whatsapp` | `src/components/sections/hero/HeroCtaStack.tsx` | Microcopy below buttons. |
 | Hero asset notes | `Hero Asset Notes` | `src/components/internal/WireframeNote.tsx` | Internal only. Do not ship on public page unless converted. |
 
@@ -57,7 +96,7 @@ This document maps every component and asset currently required by the Paper wir
 | --- | --- | --- | --- |
 | Tech carousel section | `Section 01B / Infinite Tech Logo Carousel` | `src/components/sections/TechCarouselSection.tsx` | Headline plus moving logo rail. |
 | Carousel header | `Carousel Header` | `src/components/sections/tech-carousel/CarouselHeader.tsx` | Section title and implementation note. |
-| Infinite logo rail | `Logo Rail Placeholder` | `src/components/sections/tech-carousel/LogoRail.tsx` | Needs animation, duplicated list, hover pause. |
+| Infinite logo rail | `Logo Rail Placeholder` | `src/components/sections/tech-carousel/LogoRail.tsx` | Needs animation, duplicated list, hover pause; can reuse `components/ui/carousel.tsx` if controls/Embla behavior are desired. |
 | Technology logo item | Logo rail child cards | `src/components/sections/tech-carousel/TechnologyLogoItem.tsx` | Handles SVG logo or text fallback. |
 | Technology asset inventory note | `Technology Asset Inventory` | `src/components/internal/WireframeNote.tsx` | Internal only. |
 
@@ -82,9 +121,9 @@ This document maps every component and asset currently required by the Paper wir
 | Newsletter masthead | `Newsletter Masthead` | `src/components/sections/profile-newsletter/NewsletterMasthead.tsx` | Section title and issue card. |
 | Newsletter issue card | `Newsletter Issue Card` | `src/components/sections/profile-newsletter/IssueCard.tsx` | Portrait placeholder, edition meta, Bruno age. |
 | Opening letter card | `Opening Letter` | `src/components/sections/profile-newsletter/OpeningLetter.tsx` | First three original copy paragraphs. |
-| Issue index | `In This Issue` | `src/components/sections/profile-newsletter/IssueIndex.tsx` | Five-item table of contents. |
+| Issue index | `In This Issue` | `src/components/sections/profile-newsletter/IssueIndex.tsx` | Five-item table of contents; mobile variant can compose `components/ui/accordion.tsx`. |
 | Education feature | `Education Feature` | `src/components/sections/profile-newsletter/EducationFeature.tsx` | Institution image card plus education copy. |
-| Image placeholder card | Education and partner placeholders | `src/components/ui/ImagePlaceholder.tsx` | Reusable until real images are provided. |
+| Image placeholder card | Education and partner placeholders | `components/ui/aspect-ratio.tsx` | Use imported shadcn `AspectRatio` as the media frame primitive until real images are provided. |
 | Chapter card | Chapter blocks | `src/components/sections/profile-newsletter/ChapterCard.tsx` | Reusable for formation, partnerships, strategy. |
 | Editorial note | Ranking revision note | `src/components/sections/profile-newsletter/EditorialNote.tsx` | Can be removed from public page after fact check. |
 | Experience and strategy grid | `Experience And Strategy Grid` | `src/components/sections/profile-newsletter/ExperienceStrategyGrid.tsx` | Two-card desktop grid. |
@@ -103,7 +142,18 @@ This document maps every component and asset currently required by the Paper wir
 | Project card | `Project Card / Design Systems`, `Funnels`, `Apps` | `src/components/sections/portfolio/ProjectCard.tsx` | Reusable card with preview, copy, CTA. |
 | Project card CTA | `Abrir link` buttons | `src/components/sections/portfolio/ProjectCard.tsx` | Link to each project page. |
 | Portfolio technology list | `Portfolio Technology List` | `src/components/sections/portfolio/PortfolioTechnologyList.tsx` | Stack list below cards. |
-| Technology pill list | Tech list chips | `src/components/ui/Pill.tsx` | Reuse shared pill. |
+| Technology pill list | Tech list chips | `components/ui/badge.tsx` | Reuse imported shadcn `Badge` as the pill primitive. |
+
+### Planning Doc Additions - Reusable Primitives Only
+
+These appear in `dashboard/Planejamento da construção de páginas.md` but are not full sections in the current Paper artboard. They are mapped here only as reusable primitives for later approval/implementation.
+
+| Component | Planning Source | File Location | Notes |
+| --- | --- | --- | --- |
+| Social proof avatar badge | Hero social proof avatars | `components/ui/avatar.tsx` | Avatar primitive imported; actual badge composition is not built yet. |
+| Testimonial card primitive | `card depoimento` | `components/ui/card.tsx`, `components/ui/avatar.tsx` | Compose later from imported Card + Avatar. |
+| FAQ boxes | `Faq boxes (com sistema de abrir / fechar)` | `components/ui/accordion.tsx` | Accordion imported; no FAQ content or section built. |
+| Image template frame | `Img Template`, `Img Section` | `components/ui/aspect-ratio.tsx`, `components/ui/card.tsx` | Media frame primitives imported; no image section built. |
 
 ### Final Build Inventory
 
@@ -246,4 +296,3 @@ src/assets/
 | Collect real proof for automations created. | `Automacoes criadas` proof card | `src/content/proofs.ts` |
 | Define final project routes. | Portfolio cards | `src/content/projects.ts` |
 | Decide whether existing untracked assets should be used. | Hero/profile/project previews | `src/assets/Frame Inicial.png`, `src/assets/Frame Final BG.png`, `src/assets/WhatsApp Image 2026-01-05 at 10.01.22.jpeg` |
-
