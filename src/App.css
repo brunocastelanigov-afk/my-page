@@ -8,27 +8,24 @@
   min-height: 100svh;
   background: #ffffff;
   color: #0d2444;
-  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--sans, 'Satoshi', system-ui, sans-serif);
 }
 
 .first-fold {
   min-height: 796px;
   background: #ffffff;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .site-header {
-  position: relative;
-  z-index: 2;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 96px;
   padding-inline: clamp(24px, 6.67vw, 96px);
   background: transparent;
-  border-bottom: 1px solid rgba(230, 236, 242, 0.65);
 }
 
 .site-brand {
@@ -39,30 +36,18 @@
   text-decoration: none;
 }
 
-.site-brand span {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
 
-.site-brand strong {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 28px;
-}
-
-.site-brand small {
-  color: #4d657f;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 .site-nav {
   display: flex;
   align-items: center;
   gap: clamp(16px, 2.5vw, 36px);
+}
+
+@media (max-width: 767px) {
+  .site-nav {
+    display: none !important;
+  }
 }
 
 .site-nav a {
@@ -92,10 +77,13 @@
 .sales-hero {
   min-height: 700px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 78px clamp(24px, 6.67vw, 96px) 54px;
-  border-bottom: 1px solid #e6ecf2;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .sales-hero-content {
@@ -180,20 +168,6 @@
     min-height: auto;
   }
 
-  .site-header {
-    height: auto;
-    min-height: 88px;
-    align-items: flex-start;
-    gap: 22px;
-    padding-block: 22px;
-  }
-
-  .site-nav {
-    max-width: 52%;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    row-gap: 10px;
-  }
 
   .sales-hero {
     min-height: 640px;
@@ -202,12 +176,6 @@
 }
 
 @media (max-width: 640px) {
-  .site-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
   .site-brand {
     justify-content: center;
   }
