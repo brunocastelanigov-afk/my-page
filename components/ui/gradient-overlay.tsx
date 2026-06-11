@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 type GradientOverlayProps = {
   variant?: "dark" | "background"
   direction?: "t" | "b" | "l" | "r"
-  layout?: "full" | "top" | "footer"
+  layout?: "full" | "top" | "footer" | "bottom"
   className?: string
 }
 
@@ -22,7 +22,8 @@ const variantMap = {
 const layoutMap = {
   full: "absolute inset-0",
   top: "absolute top-0 left-0 right-0 h-80",
-  footer: "absolute inset-x-0 top-0 h-[min(420px,70%)]",
+  footer: "absolute inset-x-0 top-0 h-80",
+  bottom: "absolute inset-x-0 bottom-0 h-80",
 }
 
 export function GradientOverlay({
