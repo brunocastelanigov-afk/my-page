@@ -1,23 +1,23 @@
 .catalog-page {
-  --catalog-background: oklch(0.9892 0.0054 117.9205);
-  --catalog-foreground: oklch(0.2077 0.0398 265.7549);
-  --catalog-card: oklch(1 0 0);
-  --catalog-primary: oklch(0.8871 0.2122 128.5041);
-  --catalog-primary-foreground: oklch(0 0 0);
-  --catalog-secondary: oklch(0.3717 0.0392 257.287);
-  --catalog-secondary-foreground: oklch(0.9842 0.0034 247.8575);
-  --catalog-muted: oklch(0.9683 0.0069 247.8956);
-  --catalog-muted-foreground: oklch(0.5544 0.0407 257.4166);
-  --catalog-accent: oklch(0.9819 0.0181 155.8263);
-  --catalog-accent-foreground: oklch(0.4479 0.1083 151.3277);
-  --catalog-border: oklch(0.9288 0.0126 255.5078);
-  --catalog-ring: oklch(0.8871 0.2122 128.5041);
-  --catalog-shadow: 0 20px 55px rgb(16 24 40 / 0.08);
+  --catalog-background: var(--background);
+  --catalog-foreground: var(--foreground);
+  --catalog-card: var(--card);
+  --catalog-primary: var(--primary);
+  --catalog-primary-foreground: var(--primary-foreground);
+  --catalog-secondary: var(--secondary);
+  --catalog-secondary-foreground: var(--secondary-foreground);
+  --catalog-muted: var(--muted);
+  --catalog-muted-foreground: var(--muted-foreground);
+  --catalog-accent: var(--accent);
+  --catalog-accent-foreground: var(--accent-foreground);
+  --catalog-border: var(--border);
+  --catalog-ring: var(--ring);
+  --catalog-shadow: var(--shadow-md);
 
   min-height: 100svh;
   background: var(--catalog-background);
   color: var(--catalog-foreground);
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--sans, 'Satoshi', system-ui, sans-serif);
   letter-spacing: 0;
   text-align: left;
 }
@@ -142,10 +142,6 @@ body:has(.catalog-page) #root {
   color: var(--catalog-muted-foreground);
 }
 
-.catalog-page [data-slot="badge"][data-variant="ghost"] {
-  background: var(--catalog-accent);
-  color: var(--catalog-accent-foreground);
-}
 
 .catalog-page [data-slot="card"] {
   background: var(--catalog-card);
@@ -246,7 +242,8 @@ body:has(.catalog-page) #root {
 
 .catalog-topbar {
   align-items: center;
-  background: color-mix(in srgb, var(--catalog-card), transparent 8%);
+  background: color-mix(in srgb, var(--catalog-card), transparent 15%);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--catalog-border);
   display: flex;
   gap: 1.25rem;
@@ -578,6 +575,8 @@ body:has(.catalog-page) #root {
   margin: 0;
 }
 
+
+
 .catalog-footer {
   background: var(--catalog-secondary);
   color: var(--catalog-secondary-foreground);
@@ -613,8 +612,8 @@ body:has(.catalog-page) #root {
 .rules-grid p,
 .done-line {
   align-items: center;
-  background: rgb(255 255 255 / 0.08);
-  border: 1px solid rgb(255 255 255 / 0.12);
+  background: color-mix(in srgb, var(--catalog-secondary-foreground), transparent 92%);
+  border: 1px solid color-mix(in srgb, var(--catalog-secondary-foreground), transparent 88%);
   border-radius: 8px;
   display: flex;
   gap: 0.7rem;
@@ -630,7 +629,7 @@ body:has(.catalog-page) #root {
 }
 
 .catalog-footer code {
-  background: rgb(255 255 255 / 0.12);
+  background: color-mix(in srgb, var(--catalog-secondary-foreground), transparent 88%);
   color: inherit;
 }
 

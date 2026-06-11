@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 
 type GradientOverlayProps = {
-  variant?: "dark" | "background"
+  variant?: "dark" | "background" | "carousel"
   direction?: "t" | "b" | "l" | "r"
   layout?: "full" | "top" | "footer" | "bottom"
   className?: string
@@ -17,6 +17,7 @@ const directionMap = {
 const variantMap = {
   dark: "from-black/60 via-black/20",
   background: "from-background via-background/40",
+  carousel: "from-slate-50 via-slate-50/70",
 }
 
 const layoutMap = {

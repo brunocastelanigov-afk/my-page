@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import { ArrowUpRight, Menu } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { handleSmoothScroll } from '@/lib/utils'
 import { GradientOverlay } from '@/components/ui/gradient-overlay'
 import { FadeUp } from '@/components/ui/fade-up'
@@ -46,6 +47,8 @@ const footerNavItems = [
 ]
 
 function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
     <header className="site-header">
       <a className="site-brand" href="/" aria-label="Bruno Castelani home">
@@ -63,7 +66,7 @@ function SiteHeader() {
 
       {/* Mobile Nav */}
       <div className="md:hidden flex items-center">
-        <Sheet>
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" aria-label="Open Menu">
               <Menu className="h-6 w-6" />
@@ -72,12 +75,17 @@ function SiteHeader() {
           <SheetContent side="right">
             <nav className="sales-footer-nav mt-8" aria-label="Mobile navigation">
               {navItems.map((item) => (
-                <SheetClose asChild key={item.href}>
-                  <a href={item.href} onClick={handleSmoothScroll}>
-                    <span aria-hidden="true" />
-                    {item.label}
-                  </a>
-                </SheetClose>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    handleSmoothScroll(e)
+                    setIsOpen(false)
+                  }}
+                >
+                  <span aria-hidden="true" />
+                  {item.label}
+                </a>
               ))}
             </nav>
           </SheetContent>
@@ -105,11 +113,12 @@ function HeroSection() {
         <FadeUp delay={0.28}>
           <div className="sales-hero-actions">
             <Button asChild size="lg" className="sales-primary-cta">
-              <a href="#contato" onClick={handleSmoothScroll}>
+              <a href="https://wa.me/5512997838616" target="_blank">
                 Iniciar conversa
                 <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </Button>
+
             <Button asChild size="lg" variant="outline" className="sales-secondary-cta">
               <a href="#projetos" onClick={handleSmoothScroll}>Ver projetos</a>
             </Button>
@@ -126,55 +135,60 @@ function HeroSection() {
 function AuthoritySection() {
   return (
     <section id="resultados" className="authority-section">
-      <FadeUp className="authority-header">
-        <h2>
-          Escolha quem Tem Resultados Dentro
-          e Fora do Código.
-        </h2>
-      </FadeUp>
 
-      <div className="authority-cards">
-        <FadeUp className="h-full">
-          <Card className="authority-card h-full">
-            <CardHeader>
-              <CardTitle>Ramos de Estudo</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="authority-list">
-                {studyBranches.map((item) => (
-                  <li key={item.id}>
-                    <span className="authority-index">{item.id}.</span>
-                    <div>
-                      <strong>{item.name}</strong>
-                      <span className="authority-detail">{item.detail}</span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </CardContent>
-          </Card>
+      <GradientOverlay variant="carousel" direction="b" layout="top" className="max-h-80" />
+
+      <div className="authority-container">
+        <FadeUp className="authority-header">
+          <h2>
+            Escolha quem Tem Resultados Dentro
+            e Fora do Código.
+          </h2>
         </FadeUp>
 
-        <FadeUp className="h-full">
-          <Card className="authority-card h-full">
-            <CardHeader>
-              <CardTitle>Ramos de Experiência</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ol className="authority-list">
-                {experienceBranches.map((item) => (
-                  <li key={item.id}>
-                    <span className="authority-index">{item.id}.</span>
-                    <div>
-                      <strong>{item.name}</strong>
-                      <span className="authority-detail">{item.detail}</span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </CardContent>
-          </Card>
-        </FadeUp>
+        <div className="authority-cards">
+          <FadeUp className="h-full">
+            <Card className="authority-card h-full">
+              <CardHeader>
+                <CardTitle>Ramos de Estudo</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ol className="authority-list">
+                  {studyBranches.map((item) => (
+                    <li key={item.id}>
+                      <span className="authority-index">{item.id}.</span>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span className="authority-detail">{item.detail}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+          </FadeUp>
+
+          <FadeUp className="h-full">
+            <Card className="authority-card h-full">
+              <CardHeader>
+                <CardTitle>Ramos de Experiência</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ol className="authority-list">
+                  {experienceBranches.map((item) => (
+                    <li key={item.id}>
+                      <span className="authority-index">{item.id}.</span>
+                      <div>
+                        <strong>{item.name}</strong>
+                        <span className="authority-detail">{item.detail}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </CardContent>
+            </Card>
+          </FadeUp>
+        </div>
       </div>
     </section>
   )
@@ -214,7 +228,7 @@ function FooterSection() {
           </div>
 
           <Button asChild variant="outline" size="lg" className="sales-footer-cta">
-            <a href="#contato" aria-label="Iniciar conversa com Bruno Castelani" onClick={handleSmoothScroll}>
+            <a href="https://wa.me/5512997838616" target="_blank">
               Iniciar conversa
             </a>
           </Button>
@@ -239,16 +253,14 @@ function SalesPage() {
         }}
       >
         <HeroSection />
-        <GradientOverlay variant="background" direction="t" layout="bottom" className="from-slate-50" />
       </div>
-
       <div className="pt-3 pb-2 bg-slate-50 border-y border-slate-100">
-        <FadeUp delay={0.44} className="container mx-auto px-4 mb-1 text-center">
+        <FadeUp className="container mx-auto px-4 mb-1 text-center">
           <p className="text-sm font-semibold text-slate-500 uppercase tracking-widest">
             Entre as Tecnologias Dominadas
           </p>
         </FadeUp>
-        <FadeUp delay={0.64}>
+        <FadeUp>
           <InfiniteLogoCarousel />
         </FadeUp>
       </div>

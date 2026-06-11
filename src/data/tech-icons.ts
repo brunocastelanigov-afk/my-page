@@ -1,0 +1,17 @@
+export const coloredTechIcons = [
+  { name: 'JavaScript', icon: '/icons/javascript.svg' },
+  { name: 'TypeScript', icon: '/icons/typescript.svg' },
+  { name: 'React', icon: '/icons/react.svg' },
+  { name: 'Node.js', icon: '/icons/nodejs.svg' },
+  { name: 'HTML5', icon: '/icons/html5.svg' },
+  { name: 'CSS3', icon: '/icons/css3.svg' },
+  { name: 'PostgreSQL', icon: '/icons/postgresql.svg' },
+  { name: 'Docker', icon: '/icons/docker.svg' },
+  { name: 'Tailwind CSS', icon: '/icons/tailwindcss.svg' },
+  { name: 'Vite', icon: '/icons/vite.svg' },
+  { name: 'Supabase', icon: '/icons/supabase.svg' },
+  { name: 'Prisma', icon: '/icons/prisma.svg' },
+  { name: 'n8n', icon: '/icons/n8n.svg' },
+  { name: 'Stripe', icon: '/icons/stripe.svg' },
+  { name: 'Cloudflare', icon: '/icons/cloudflare.svg' },
+]

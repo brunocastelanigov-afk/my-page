@@ -468,11 +468,16 @@
 /* -------------------------------- */
 
 .authority-section {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: clamp(56px, 8vw, 96px) clamp(24px, 6.67vw, 96px);
+  width: 100%;
   position: relative;
   isolation: isolate;
+  padding-block: clamp(56px, 8vw, 96px);
+}
+
+.authority-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: clamp(24px, 6.67vw, 96px);
 }
 
 .authority-gradient {
@@ -483,8 +488,8 @@
   transform: translateX(-50%);
 }
 
-.authority-section>.authority-header,
-.authority-section>.authority-cards {
+.authority-container>.authority-header,
+.authority-container>.authority-cards {
   position: relative;
   z-index: 1;
 }
